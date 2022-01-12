@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/back_ground"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+tools:context=".ui.auth.fragment.Login">
+
+<TextView
+    android:id="@+id/login_txt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/login_here"
+    android:textSize="25sp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="20dp"
+    android:textStyle="bold"
+    android:textColor="@color/blue"/>
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/email_lay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    android:hint="@string/email_id"
+    app:layout_constraintTop_toBottomOf="@id/login_txt"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:padding="12dp"/>
+</com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/pass_lay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    android:hint="@string/password"
+    app:layout_constraintTop_toBottomOf="@id/email_lay"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:padding="12dp"/>
+</com.google.android.material.textfield.TextInputLayout>
+
+<androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/login_btn"
+    android:layout_width="match_parent"
+    android:layout_height="52dp"
+    android:text="@string/login"
+    android:textAllCaps="false"
+    android:textSize="18sp"
+    android:textColor="@color/white"
+    android:backgroundTint="@color/blue"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/pass_lay"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"/>
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="15dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/login_btn">
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/don_t_have_an_account"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_btn"
+        android:textSize="17sp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/click_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/click_here"
+        app:layout_constraintStart_toEndOf="@id/txt"
+        app:layout_constraintTop_toBottomOf="@id/login_btn"
+        android:layout_marginStart="5dp"
+        android:textSize="18sp"
+        android:textColor="@color/red"/>
+</LinearLayout>
+
+<ProgressBar
+    android:id="@+id/l_pro"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

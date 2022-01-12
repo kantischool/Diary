@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/r_lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/back_ground"
+        tools:context=".ui.auth.fragment.Register">
+
+        <TextView
+            android:id="@+id/register_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_here"
+            android:textSize="25sp"
+            app:layout_constraintTop_toTopOf="@id/r_lay"
+            app:layout_constraintStart_toStartOf="@id/r_lay"
+            app:layout_constraintEnd_toEndOf="@id/r_lay"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/blue"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_lay_r"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:hint="@string/name"
+            app:layout_constraintTop_toBottomOf="@id/register_txt"
+            app:layout_constraintStart_toStartOf="@id/r_lay"
+            app:layout_constraintEnd_toEndOf="@id/r_lay"
+            android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name_r"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/age_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:hint="@string/age"
+            app:layout_constraintTop_toBottomOf="@id/name_lay_r"
+            app:layout_constraintStart_toStartOf="@id/r_lay"
+            app:layout_constraintEnd_toEndOf="@id/r_lay"
+            android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dob_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:hint="@string/date_of_birth"
+            app:layout_constraintTop_toBottomOf="@id/age_lay"
+            app:layout_constraintStart_toStartOf="@id/r_lay"
+            app:layout_constraintEnd_toEndOf="@id/r_lay"
+            android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:focusable="false"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_id_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:hint="@string/email_id"
+            app:layout_constraintTop_toBottomOf="@id/dob_lay"
+            app:layout_constraintStart_toStartOf="@id/r_lay"
+            app:layout_constraintEnd_toEndOf="@id/r_lay"
+            android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:hint="@string/password"
+            app:layout_constraintTop_toBottomOf="@id/email_id_lay"
+            app:layout_constraintStart_toStartOf="@id/r_lay"
+            app:layout_constraintEnd_toEndOf="@id/r_lay"
+            android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/register_btn"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="@string/register"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/blue"
+            app:layout_constraintStart_toStartOf="@id/r_lay"
+            app:layout_constraintEnd_toEndOf="@id/r_lay"
+            app:layout_constraintTop_toBottomOf="@id/password_lay"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="@id/r_lay"
+            app:layout_constraintEnd_toEndOf="@id/r_lay"
+            app:layout_constraintTop_toBottomOf="@id/register_btn">
+
+            <TextView
+                android:id="@+id/txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/already_have_an_account"
+                android:textSize="17sp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/click_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/click_here"
+                android:layout_marginStart="5dp"
+                android:textSize="18sp"
+                android:textColor="@color/red"/>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/r_pro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
