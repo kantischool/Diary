@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_register.*
 
 
 class Login : Fragment() {
@@ -45,11 +46,22 @@ class Login : Fragment() {
         login_btn.setOnClickListener {
             val emailId = email.text.toString().trim()
             val passId = pass.text.toString().trim()
+            if (emailId.isEmpty()){
+                email.requestFocus()
+                email.error = "Enter your Enter your email"
+                return@setOnClickListener
+            }
             if (!Patterns.EMAIL_ADDRESS.matcher(emailId).matches()){
                 email.requestFocus()
                 email.error = "Enter valid email"
+                return@setOnClickListener
             }
-            Validation().validateData(arrayOf(emailId, passId), arrayOf(email, pass))
+            if (passId.isEmpty()){
+                pass.requestFocus()
+                pass.error = "Enter your Password"
+                return@setOnClickListener
+            }
+//            Validation().validateData(arrayOf(emailId, passId), arrayOf(email, pass))
             l_pro.visibility = View.VISIBLE
             userViewModel.loginUser(emailId, passId, l_pro)
         }

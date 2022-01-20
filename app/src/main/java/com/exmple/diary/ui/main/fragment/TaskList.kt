@@ -54,6 +54,7 @@ class TaskList : Fragment() {
             msg.visibility = View.VISIBLE
         }else{
             list.clear()
+//            val sortedList = tasks.values.sorted()
            for (i in tasks.keys){
                list.add(Task(i, tasks.getValue(i)))
            }

@@ -57,11 +57,38 @@ class Register : Fragment() {
             val email = email_id.text.toString().trim()
             val pass = password.text.toString().trim()
 
+
+            if (name.isEmpty()){
+                name_r.requestFocus()
+                name_r.error = "Enter your name"
+                return@setOnClickListener
+            }
+            if (uAge.isEmpty()){
+                age.requestFocus()
+                age.error = "Enter your age"
+                return@setOnClickListener
+            }
+            if (uDob.isEmpty()){
+                dob.requestFocus()
+                dob.error = "Enter your Date of birth"
+                return@setOnClickListener
+            }
+            if (email.isEmpty()){
+                email_id.requestFocus()
+                email_id.error = "Enter your Enter your email"
+                return@setOnClickListener
+            }
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 email_id.requestFocus()
                 email_id.error = "Enter valid email"
+                return@setOnClickListener
             }
-            validation.validateData(arrayOf(name, uAge, uDob, email, pass), arrayOf(name_r, age, dob, email_id, password))
+            if (pass.isEmpty()){
+            password.requestFocus()
+            password.error = "Enter your password"
+            return@setOnClickListener
+        }
+//            validation.validateData(arrayOf(name, uAge, uDob, email, pass), arrayOf(name_r, age, dob, email_id, password))
             r_pro.visibility = View.VISIBLE
             userViewModel.signInUser(email, pass, name,uAge, uDob,r_pro)
 
