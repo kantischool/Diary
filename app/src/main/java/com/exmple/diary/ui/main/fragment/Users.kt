@@ -1,15 +1,13 @@
 package com.exmple.diary.ui.main.fragment
 
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -22,11 +20,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_users.*
-import kotlinx.android.synthetic.main.user_item.*
+import android.content.Context.MODE_PRIVATE
 
-
+import android.content.SharedPreferences
 class Users : Fragment() {
 
     private lateinit var userViewModel: UserViewModel
@@ -35,6 +32,9 @@ class Users : Fragment() {
     private lateinit var navController: NavController
     private val list : ArrayList<User> = ArrayList()
     private lateinit var uid : String
+    private  var nightMode = false
+    private lateinit var editor: SharedPreferences.Editor
+    private lateinit var sharedPreferences: SharedPreferences
 
 
     override fun onCreateView(
@@ -47,12 +47,15 @@ class Users : Fragment() {
         adapter = UserAdapter(requireContext(), list, navController)
          uid = Validation().authInstance().currentUser!!.uid
         userViewModel = ViewModelProvider(this, UserViewModelFactory(Validation().authInstance(), requireActivity(), requireContext(), db)).get(UserViewModel::class.java)
+        sharedPreferences= requireContext().getSharedPreferences("sharedPref", MODE_PRIVATE)
+        editor = sharedPreferences.edit()
 
         return v
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setMode()
         user_recycler.adapter = adapter
         user_pro.visibility = View.VISIBLE
         userViewModel.getUser().observe(viewLifecycleOwner, {
@@ -71,18 +74,45 @@ class Users : Fragment() {
             user_pro.visibility = View.GONE
             adapter.notifyDataSetChanged()
         })
-        self_user.setOnClickListener {
+        con1.setOnClickListener {
             navController.navigate(UsersDirections.actionUserToTaskList())
         }
-        mode.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked){
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            }else{
+
+//        mode.setOnCheckedChangeListener { buttonView, isChecked ->
+//            if (isChecked){
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//                editor.putBoolean("NightMode", true)
+//                editor.apply()
+//            }else{
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//                editor.putBoolean("NightMode", false)
+//                editor.apply()
+//            }
+//        }
+        mode.setOnClickListener {
+            if (nightMode){
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                editor.putBoolean("NightMode", false)
+                editor.apply()
+            }
+            else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                editor.putBoolean("NightMode", true)
+                editor.apply()
             }
         }
     }
+    private fun setMode() {
+        val isNightMode = sharedPreferences.getBoolean("NightMode", false)
 
+        if (isNightMode){
+            nightMode = true
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }else{
+            nightMode = false
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+    }
     override fun onResume() {
         super.onResume()
         val activity = activity as MainActivity

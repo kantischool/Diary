@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import com.exmple.diary.JValidation
 import com.exmple.diary.R
 import com.exmple.diary.Validation
 import com.exmple.diary.ui.auth.AuthActivity
